@@ -28,6 +28,7 @@
 		CB9AD71114FB1BC900A617BC /* SupermarketSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SupermarketSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9AD71514FB1BC900A617BC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CB9AD71714FB1BC900A617BC /* SupermarketSimulator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SupermarketSimulator.1; sourceTree = "<group>"; };
+		CBFC954914FB1E6B00B44A3C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9AD71514FB1BC900A617BC /* main.cpp */,
+				CBFC954914FB1E6B00B44A3C /* README */,
 				CB9AD71714FB1BC900A617BC /* SupermarketSimulator.1 */,
 			);
 			path = SupermarketSimulator;
@@ -201,6 +203,7 @@
 				CB9AD71D14FB1BC900A617BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
