@@ -1,0 +1,208 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB9AD71614FB1BC900A617BC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9AD71514FB1BC900A617BC /* main.cpp */; };
+		CB9AD71814FB1BC900A617BC /* SupermarketSimulator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB9AD71714FB1BC900A617BC /* SupermarketSimulator.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CB9AD70F14FB1BC900A617BC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				CB9AD71814FB1BC900A617BC /* SupermarketSimulator.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CB9AD71114FB1BC900A617BC /* SupermarketSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SupermarketSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9AD71514FB1BC900A617BC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CB9AD71714FB1BC900A617BC /* SupermarketSimulator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SupermarketSimulator.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB9AD70E14FB1BC900A617BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB9AD70614FB1BC900A617BC = {
+			isa = PBXGroup;
+			children = (
+				CB9AD71414FB1BC900A617BC /* SupermarketSimulator */,
+				CB9AD71214FB1BC900A617BC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB9AD71214FB1BC900A617BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB9AD71114FB1BC900A617BC /* SupermarketSimulator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB9AD71414FB1BC900A617BC /* SupermarketSimulator */ = {
+			isa = PBXGroup;
+			children = (
+				CB9AD71514FB1BC900A617BC /* main.cpp */,
+				CB9AD71714FB1BC900A617BC /* SupermarketSimulator.1 */,
+			);
+			path = SupermarketSimulator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB9AD71014FB1BC900A617BC /* SupermarketSimulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9AD71B14FB1BC900A617BC /* Build configuration list for PBXNativeTarget "SupermarketSimulator" */;
+			buildPhases = (
+				CB9AD70D14FB1BC900A617BC /* Sources */,
+				CB9AD70E14FB1BC900A617BC /* Frameworks */,
+				CB9AD70F14FB1BC900A617BC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SupermarketSimulator;
+			productName = SupermarketSimulator;
+			productReference = CB9AD71114FB1BC900A617BC /* SupermarketSimulator */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB9AD70814FB1BC900A617BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CB9AD70B14FB1BC900A617BC /* Build configuration list for PBXProject "SupermarketSimulator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CB9AD70614FB1BC900A617BC;
+			productRefGroup = CB9AD71214FB1BC900A617BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB9AD71014FB1BC900A617BC /* SupermarketSimulator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB9AD70D14FB1BC900A617BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9AD71614FB1BC900A617BC /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CB9AD71914FB1BC900A617BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CB9AD71A14FB1BC900A617BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CB9AD71C14FB1BC900A617BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CB9AD71D14FB1BC900A617BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB9AD70B14FB1BC900A617BC /* Build configuration list for PBXProject "SupermarketSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9AD71914FB1BC900A617BC /* Debug */,
+				CB9AD71A14FB1BC900A617BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9AD71B14FB1BC900A617BC /* Build configuration list for PBXNativeTarget "SupermarketSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9AD71C14FB1BC900A617BC /* Debug */,
+				CB9AD71D14FB1BC900A617BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB9AD70814FB1BC900A617BC /* Project object */;
+}
