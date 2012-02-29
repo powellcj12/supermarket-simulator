@@ -21,11 +21,11 @@ class queue
 public:
     queue();
     ~queue();
-    void enqueue(T item);
+    void enqueue(const T item);
     T dequeue();
+    T peek();
     int getCount();
     bool isEmpty();
-    void print();
     
 private:
     node<T>* head;

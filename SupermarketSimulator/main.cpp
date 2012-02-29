@@ -5,6 +5,7 @@
 //  Created by Charles Powell on 2/26/12.
 //
 
+#include "queue.cpp"
 #include <iostream>
 
 using namespace std;

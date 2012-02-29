@@ -33,7 +33,7 @@ queue<T>::~queue()
 }
 
 template <typename T>
-void queue<T>::enqueue(T item)
+void queue<T>::enqueue(const T item)
 {
     node<T>* temp = new node<T>;
     temp -> data = item;
@@ -63,7 +63,13 @@ T queue<T>::dequeue()
         count--;
     }
     
-    return temp;
+    return temp;//undefined behavior on empty queue
+}
+
+template <typename T>
+T queue<T>::peek()
+{
+    return head -> data;
 }
 
 template <typename T>
@@ -76,16 +82,4 @@ template <typename T>
 bool queue<T>::isEmpty()
 {
     return (count == 0);
-}
-
-template <typename T>
-void queue<T>::print()
-{
-    node<T>* iter = head;
-    
-    while(iter)
-    {
-        cout << iter -> data << endl;
-        iter = iter -> next;
-    }
 }
