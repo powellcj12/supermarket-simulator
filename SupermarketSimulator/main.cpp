@@ -5,12 +5,12 @@
 //  Created by Charles Powell on 2/26/12.
 //
 
-#include "queue.cpp"
+#include "Queue.h"
 #include <iostream>
 
 using namespace std;
 
-int main (int argc, const char * argv[])
+int main ()
 {
     return 0;
 }
