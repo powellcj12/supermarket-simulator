@@ -36,3 +36,13 @@ std::string Customer::getName()
 {
     return name;
 }
+
+void Customer::setWaitTime(int wait)
+{
+    waitTime = wait + numItems;
+}
+
+int Customer::getWaitTime()
+{
+    return waitTime;
+}

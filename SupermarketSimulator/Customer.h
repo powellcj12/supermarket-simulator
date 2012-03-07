@@ -19,12 +19,14 @@ public:
     int getArrTime();
     int getNumItems();
     std::string getName();
+    void setWaitTime(int);
+    int getWaitTime();
     
 private:
     std::string name;
     int arrivalTime;
     int numItems;
-    
+    int waitTime;
 };
 
 #endif
