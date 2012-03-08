@@ -57,7 +57,20 @@ Supermarket::~Supermarket()
 
 void Supermarket::loadCustomers(string file)
 {
+    ifstream inFile;
+    inFile.open(file.c_str(), ifstream::in);
     
+    string name;
+    int numItems, arrTime;
+    
+    while (inFile.good())
+    {
+        inFile >> name >> numItems >> arrTime;
+        Customer* c = new Customer(name, numItems, arrTime);
+        custQ -> enqueue(c);
+    }
+    
+    inFile.close();
 }
 
 void Supermarket::simulate()
