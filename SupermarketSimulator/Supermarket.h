@@ -43,7 +43,7 @@ private:
     int numExpressCusts;
     int time;
     
-    bool stillCustomers();
+    bool allQsEmpty();
 };
 
 #endif
