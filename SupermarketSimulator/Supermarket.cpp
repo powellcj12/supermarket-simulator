@@ -15,22 +15,22 @@ Supermarket::Supermarket(int config)
         case 1:
             numQs = 1;
             numRegs = 1;
-            numExpress = 0;
+            numExpressRegs = 0;
             break;
         case 2:
             numQs = 4;
             numRegs = 4;
-            numExpress = 0;
+            numExpressRegs = 0;
             break;
         case 3:
             numQs = 4;
             numRegs = 4;
-            numExpress = 2;
+            numExpressRegs = 2;
             break;
         case 4:
             numQs = 1;
             numRegs = 4;
-            numExpress = 0;
+            numExpressRegs = 0;
             break;
     }
     
@@ -41,10 +41,12 @@ Supermarket::Supermarket(int config)
     {
         regs[i].c = NULL;
         regs[i].items = 0;
-        regs[i].isExpress = i < numExpress;
+        regs[i].isExpress = i < numExpressRegs;
     }
     
     doneQ = new Queue();
+    numCusts = 0;
+    numExpressCusts = 0;
     time = 0;
 }
 
@@ -68,6 +70,7 @@ void Supermarket::loadCustomers(string file)
         inFile >> name >> numItems >> arrTime;
         Customer* c = new Customer(name, numItems, arrTime);
         custQ -> enqueue(c);
+        numCusts++;
     }
     
     inFile.close();

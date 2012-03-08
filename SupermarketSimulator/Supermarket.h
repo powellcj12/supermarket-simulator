@@ -38,7 +38,9 @@ private:
     
     int numQs;
     int numRegs;
-    int numExpress;
+    int numExpressRegs;
+    int numCusts;
+    int numExpressCusts;
     int time;
 };
 
