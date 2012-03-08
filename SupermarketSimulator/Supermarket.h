@@ -42,6 +42,8 @@ private:
     int numCusts;
     int numExpressCusts;
     int time;
+    
+    bool stillCustomers();
 };
 
 #endif

@@ -78,5 +78,23 @@ void Supermarket::loadCustomers(string file)
 
 void Supermarket::simulate()
 {
+    while(!allQsEmpty())
+    {
+        //loop through registers and process
+        //if register empty, try to pull from queue
+        //check for express customers and queue
+        //add to completed queue when done
+        
+        time++;
+    }
+}
+
+bool Supermarket::allQsEmpty()
+{
+    bool ans = true;
     
+    for(int i = 0; i < numQs; i++)
+        ans = ans && custQ[i].isEmpty();
+    
+    return ans;
 }
