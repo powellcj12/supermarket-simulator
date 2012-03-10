@@ -15,7 +15,7 @@ class Customer
 {
 public:
     Customer();
-    Customer(std::string custName, int arr, int num);
+    Customer(std::string custName, int num, int arr);
     int getArrTime();
     int getNumItems();
     std::string getName();

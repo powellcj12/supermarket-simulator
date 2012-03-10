@@ -15,7 +15,7 @@ Customer::Customer()
     numItems = 0;
 }
  
-Customer::Customer(std::string custName, int arr, int num)
+Customer::Customer(std::string custName, int num, int arr)
 {
     name = custName;
     arrivalTime = arr;
