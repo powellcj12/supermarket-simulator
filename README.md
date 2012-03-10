@@ -1,9 +1,9 @@
-h1. SupermarketSimulator
+# SupermarketSimulator
 
-h2. Introduction
+## Introduction
 This is a simulator for computing wait times of customers at a supermarket. It is a discrete time simulator - it uses a "tick" as a second.
 
-h2. Compile
+## Compile
 
 	g++ main.cpp Supermarket.cpp Queue.cpp Customer.cpp -o simulator
 
