@@ -73,7 +73,7 @@ void Supermarket::loadCustomers(string file)
         custList.push_back(c);
         numCusts++;
         
-        if(c -> getNumItems() < EXPRESS_ITEM_LIMIT)
+        if(c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
             numExpressCusts++;
     }
     
@@ -86,7 +86,6 @@ void Supermarket::simulate()
     while(!allQsEmpty() || !custList.empty())
     {
         list<Customer *>::iterator custItr = custList.begin();
-        cout << time << endl;
         
         //go through all customers in waiting area
         while(custItr != custList.end() && (*custItr) -> getArrTime() <= time)
@@ -176,7 +175,6 @@ void Supermarket::processRegs()
             regs[i].c = custQs[regLine].dequeue();
             regs[i].items = regs[i].c -> getNumItems();
             regs[i].c -> setWaitTime(time - regs[i].c -> getArrTime());
-            cout << time << endl;
             totalCustWaitTime += regs[i].c -> getWaitTime();
             
             if(regs[i].c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
