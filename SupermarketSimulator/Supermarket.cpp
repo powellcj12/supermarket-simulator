@@ -87,6 +87,7 @@ void Supermarket::simulate()
     {
         list<Customer *>::iterator custItr = custList.begin();
         cout << time << endl;
+        cout << custQs[0].isEmpty() << endl;
         
         //go through all customers in waiting area
         while((*custItr) -> getArrTime() <= time && custItr != custList.end())
@@ -171,7 +172,7 @@ void Supermarket::processRegs()
         else//all others
             regLine = i;
         
-        if(regs[i].items == 0 && custQs[regLine].peek())
+        if(!regs[i].c && custQs[regLine].peek())
         {
             regs[i].c = custQs[regLine].dequeue();
             regs[i].items = regs[i].c -> getNumItems();

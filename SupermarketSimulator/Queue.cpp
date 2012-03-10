@@ -49,8 +49,10 @@ Customer* Queue::dequeue()
     
     if(head)
     {
+        node* garbage = head;
         temp = head -> c;
         head = head -> next;
+        delete garbage;
         count--;
     }
     
@@ -59,7 +61,10 @@ Customer* Queue::dequeue()
 
 Customer* Queue::peek()
 {
-    return head -> c;
+    if(head)
+        return head -> c;
+    
+    return NULL;
 }
 
 int Queue::getCount()
