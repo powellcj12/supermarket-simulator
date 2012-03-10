@@ -8,6 +8,8 @@
 
 #include "Supermarket.h"
 
+const int EXPRESS_ITEM_LIMIT = 5;
+
 Supermarket::Supermarket(int config)
 {
     switch (config)
@@ -34,7 +36,8 @@ Supermarket::Supermarket(int config)
             break;
     }
     
-    custQ = new Queue[numQs];
+    waitArea = new Queue();
+    custQs = new Queue[numQs];
     regs = new Register[numRegs];
     
     for(int i = 0; i < numRegs; i++)
@@ -52,7 +55,8 @@ Supermarket::Supermarket(int config)
 
 Supermarket::~Supermarket()
 {
-    delete[] custQ;
+    delete waitArea;
+    delete[] custQs;
     delete[] regs;
     delete doneQ;
 }
@@ -69,8 +73,11 @@ void Supermarket::loadCustomers(string file)
     {
         inFile >> name >> numItems >> arrTime;
         Customer* c = new Customer(name, numItems, arrTime);
-        custQ -> enqueue(c);
+        waitArea -> enqueue(c);
         numCusts++;
+        
+        if(c -> getNumItems() < EXPRESS_ITEM_LIMIT)
+            numExpressCusts++;
     }
     
     inFile.close();
@@ -80,11 +87,6 @@ void Supermarket::simulate()
 {
     while(!allQsEmpty())
     {
-        //loop through registers and process
-        //if register empty, try to pull from queue
-        //check for express customers and queue
-        //add to completed queue when done
-        
         time++;
     }
 }
@@ -94,7 +96,7 @@ bool Supermarket::allQsEmpty()
     bool ans = true;
     
     for(int i = 0; i < numQs; i++)
-        ans = ans && custQ[i].isEmpty();
+        ans = ans && custQs[i].isEmpty();
     
     return ans;
 }

@@ -32,7 +32,8 @@ public:
     void simulate();
     
 private:
-    Queue* custQ;
+    Queue* waitArea;
+    Queue* custQs;
     Register* regs;
     Queue* doneQ;
     
