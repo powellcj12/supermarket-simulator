@@ -48,6 +48,7 @@ private:
     int time;
     
     bool allQsEmpty();
+    bool allRegsEmpty();
     //try to place customer in shortest, appropriate queue
     bool placeCust(Customer*);
     void processRegs();

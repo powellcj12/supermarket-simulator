@@ -83,7 +83,7 @@ void Supermarket::loadCustomers(string file)
 void Supermarket::simulate()
 {
     //continue while there are still customers to process
-    while(!allQsEmpty() || !custList.empty())
+    while(!allQsEmpty() || !custList.empty() || !allRegsEmpty())
     {
         list<Customer *>::iterator custItr = custList.begin();
         
@@ -123,13 +123,25 @@ void Supermarket::getResults(string file)
 }
 
 bool Supermarket::allQsEmpty()
-{
-    bool ans = true;
-    
+{    
     for(int i = 0; i < numQs; i++)
-        ans = ans && custQs[i].isEmpty();
+    {
+        if(custQs[i].getCount() > 0)
+            return false;
+    }
     
-    return ans;
+    return true;
+}
+
+bool Supermarket::allRegsEmpty()
+{
+    for(int i = 0; i < numRegs; i++)
+    {
+        if(regs[i].c)
+            return false;
+    }
+    
+    return true;
 }
 
 bool Supermarket::placeCust(Customer *c)
