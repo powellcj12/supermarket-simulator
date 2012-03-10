@@ -164,9 +164,15 @@ void Supermarket::processRegs()
 {
     for(int i = 0; i < numRegs; i++)
     {
-        if(regs[i].items == 0)
+        int regLine;
+        if(numQs == 1)//bank configuration
+            regLine = 0;
+        else//all others
+            regLine = i;
+        
+        if(regs[i].items == 0 && custQs[regLine].peek())
         {
-            regs[i].c = custQs -> dequeue();
+            regs[i].c = custQs[regLine].dequeue();
             regs[i].items = regs[i].c -> getNumItems();
             regs[i].c -> setWaitTime(time - regs[i].c -> getArrTime());
             
@@ -178,7 +184,10 @@ void Supermarket::processRegs()
         
         regs[i].items--;
         
-        if(regs[i].items == 0)
+        if(regs[i].items == 0 && regs[i].c)
+        {   //only add to done list if there's a customer here
             doneQ.enqueue(regs[i].c);
+            regs[i].c = NULL;
+        }
     }
 }
