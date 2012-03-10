@@ -42,6 +42,7 @@ Supermarket::Supermarket(int config)
     for(int i = 0; i < numRegs; i++)
     {
         regs[i].c = NULL;
+        regs[i].available = true;
         regs[i].items = 0;
     }
     
@@ -137,7 +138,7 @@ bool Supermarket::allRegsEmpty()
 {
     for(int i = 0; i < numRegs; i++)
     {
-        if(regs[i].c)
+        if(!regs[i].available)
             return false;
     }
     
@@ -148,23 +149,31 @@ bool Supermarket::placeCust(Customer *c)
 {
     int shortest = -1;
     
-    for(int i = 0; i < numQs; i++)
+    if(numQs == 1) //bank configuration
+        shortest = 0;
+    else
     {
-        //if this line is shorter
-        if(shortest == -1 || custQs[i].getCount() < custQs[shortest].getCount())
+        for(int i = 0; i < numQs; i++)
         {
-            if(i < numExpressRegs) //if express line, check if customer is express
+            //cout << custQs[i].getCount() << " " << custQs[shortest].getCount() << endl;
+        
+            if(shortest == -1 || 
+               custQs[i].getCount() + (!regs[i].available) < custQs[shortest].getCount() + (!regs[shortest].available))
             {
-                if(c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
+                if(i < numExpressRegs) //only put here is express customer
+                {
+                    if(c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
+                        shortest = i;
+                }
+                else //choose first regular line
                     shortest = i;
             }
-            else //if not an express line, we're all good
-                shortest = i;
         }
     }
     
     if(shortest != -1)
     {
+        //cout << "Placing " << c -> getName() << " in line " << shortest << endl;
         custQs[shortest].enqueue(c);
         return true;
     }
@@ -176,15 +185,14 @@ void Supermarket::processRegs()
 {
     for(int i = 0; i < numRegs; i++)
     {
-        int regLine;
+        int regLine = i;
         if(numQs == 1)//bank configuration
             regLine = 0;
-        else//all others
-            regLine = i;
         
-        if(!regs[i].c && custQs[regLine].peek())
+        if(regs[i].available && custQs[regLine].peek())
         {
             regs[i].c = custQs[regLine].dequeue();
+            regs[i].available = false;
             regs[i].items = regs[i].c -> getNumItems();
             regs[i].c -> setWaitTime(time - regs[i].c -> getArrTime());
             totalCustWaitTime += regs[i].c -> getWaitTime();
@@ -193,12 +201,13 @@ void Supermarket::processRegs()
                 totalExpressCustWaitTime += regs[i].c -> getWaitTime();
         }
         
-        regs[i].items--;
+        regs[i].items--; //process an item for the customer
         
-        if(regs[i].items == 0 && regs[i].c)
+        if(regs[i].items == 0 && !regs[i].available)
         {   //only add to done list if there's a customer here
             doneQ.enqueue(regs[i].c);
             regs[i].c = NULL;
+            regs[i].available = true;
         }
     }
 }

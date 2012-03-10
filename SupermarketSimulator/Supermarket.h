@@ -20,6 +20,7 @@ using namespace std;
 struct Register
 {
     Customer* c;
+    bool available;
     int items;
 };
 
