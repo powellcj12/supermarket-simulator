@@ -83,12 +83,13 @@ void Supermarket::loadCustomers(string file)
 void Supermarket::simulate()
 {
     //continue while there are still customers to process
-    while(!allQsEmpty() && !custList.empty())
+    while(!allQsEmpty() || !custList.empty())
     {
         list<Customer *>::iterator custItr = custList.begin();
+        cout << time << endl;
         
         //go through all customers in waiting area
-        while((*custItr) -> getArrTime() >= time && custItr != custList.end())
+        while((*custItr) -> getArrTime() <= time && custItr != custList.end())
         {
             if(placeCust(*custItr))
                 custItr = custList.erase(custItr); //this effectively iterates
