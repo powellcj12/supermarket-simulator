@@ -36,7 +36,6 @@ Supermarket::Supermarket(int config)
             break;
     }
     
-    waitArea = new Queue();
     custQs = new Queue[numQs];
     regs = new Register[numRegs];
     
@@ -55,7 +54,6 @@ Supermarket::Supermarket(int config)
 
 Supermarket::~Supermarket()
 {
-    delete waitArea;
     delete[] custQs;
     delete[] regs;
     delete doneQ;
@@ -73,7 +71,7 @@ void Supermarket::loadCustomers(string file)
     {
         inFile >> name >> numItems >> arrTime;
         Customer* c = new Customer(name, numItems, arrTime);
-        waitArea -> enqueue(c);
+        custList.push_back(c);
         numCusts++;
         
         if(c -> getNumItems() < EXPRESS_ITEM_LIMIT)
@@ -85,8 +83,10 @@ void Supermarket::loadCustomers(string file)
 
 void Supermarket::simulate()
 {
-    while(!allQsEmpty())
+    //continue while there are still customers to process
+    while(!allQsEmpty() && !custList.empty())
     {
+        
         time++;
     }
 }
@@ -99,4 +99,9 @@ bool Supermarket::allQsEmpty()
         ans = ans && custQs[i].isEmpty();
     
     return ans;
+}
+
+bool Supermarket::registerEmpty()
+{
+    for(int i = 0; i < numRegs
 }

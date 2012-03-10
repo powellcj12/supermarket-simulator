@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <list>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
     void simulate();
     
 private:
-    Queue* waitArea;
+    list<Customer *> custList;
     Queue* custQs;
     Register* regs;
     Queue* doneQ;
@@ -45,6 +46,7 @@ private:
     int time;
     
     bool allQsEmpty();
+    bool registerEmpty();
 };
 
 #endif
