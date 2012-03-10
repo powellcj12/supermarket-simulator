@@ -43,7 +43,7 @@ Supermarket::Supermarket(int config)
     {
         regs[i].c = NULL;
         regs[i].items = 0;
-        regs[i].isExpress = i < numExpressRegs;
+        //regs[i].isExpress = i < numExpressRegs;
     }
     
     doneQ = new Queue();
@@ -86,7 +86,18 @@ void Supermarket::simulate()
     //continue while there are still customers to process
     while(!allQsEmpty() && !custList.empty())
     {
+        list<Customer *>::iterator custItr = custList.begin();
         
+        //go through all customers in waiting area
+        while((*custItr) -> getArrTime() >= time && custItr != custList.end())
+        {
+            if(placeCust(*custItr))
+                custItr = custList.erase(custItr); //this effectively iterates
+            else
+                custItr++;
+        }
+        
+        processRegs();
         time++;
     }
 }
@@ -101,7 +112,35 @@ bool Supermarket::allQsEmpty()
     return ans;
 }
 
-bool Supermarket::registerEmpty()
+bool Supermarket::placeCust(Customer *c)
 {
-    for(int i = 0; i < numRegs
+    int shortest = -1;
+    
+    for(int i = 0; i < numQs; i++)
+    {
+        //if this line is shorter
+        if(shortest == -1 || custQs[i].getCount() < custQs[shortest].getCount())
+        {
+            if(i < numExpressRegs) //if express line, check if customer is express
+            {
+                if(c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
+                    shortest = i;
+            }
+            else //if not an express line, we're all good
+                shortest = i;
+        }
+    }
+    
+    if(shortest != -1)
+    {
+        custQs[shortest].enqueue(c);
+        return true;
+    }
+    
+    return false;
+}
+
+void Supermarket::processRegs()
+{
+    
 }

@@ -21,7 +21,7 @@ struct Register
 {
     Customer* c;
     int items;
-    bool isExpress;
+    //bool isExpress;
 };
 
 class Supermarket
@@ -46,7 +46,9 @@ private:
     int time;
     
     bool allQsEmpty();
-    bool registerEmpty();
+    //try to place customer in shortest, appropriate queue
+    bool placeCust(Customer*);
+    void processRegs();
 };
 
 #endif
