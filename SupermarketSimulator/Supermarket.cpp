@@ -101,6 +101,27 @@ void Supermarket::simulate()
     }
 }
 
+void Supermarket::getResults(string file)
+{
+    ofstream outFile;
+    outFile.open(file.c_str(), ofstream::out);
+    
+    while(!doneQ.isEmpty())
+    {
+        Customer* c = doneQ.dequeue();
+        outFile << c -> getName() << " " << c -> getNumItems() << " "
+            << c -> getArrTime() << " " << c -> getWaitTime() << endl;
+    }
+    
+    outFile.close();
+    
+    double avgWaitTime = (double)totalCustWaitTime/numCusts;
+    double avgExpressWaitTime = (double)totalExpressCustWaitTime/numExpressCusts;
+    
+    cout << "Average wait time: " << avgWaitTime << "s\n";
+    cout << "Average express wait time: " << avgExpressWaitTime << "s\n";
+}
+
 bool Supermarket::allQsEmpty()
 {
     bool ans = true;

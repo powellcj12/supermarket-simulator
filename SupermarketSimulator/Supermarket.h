@@ -30,6 +30,7 @@ public:
     ~Supermarket();
     void loadCustomers(string);
     void simulate();
+    void getResults(string);
     
 private:
     list<Customer *> custList;
