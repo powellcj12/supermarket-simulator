@@ -26,7 +26,7 @@ int main ()
         
         s->loadCustomers(filename);
         s->simulate();
-        s->getResults(filename.append(".output"));
+        s->getResults(filename.append(".out"));
     }
     else
         cout << "Invalid configuration: " << config << endl;
