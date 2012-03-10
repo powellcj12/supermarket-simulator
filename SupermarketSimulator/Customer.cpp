@@ -39,7 +39,7 @@ std::string Customer::getName()
 
 void Customer::setWaitTime(int wait)
 {
-    waitTime = wait + numItems;
+    waitTime = wait;
 }
 
 int Customer::getWaitTime()

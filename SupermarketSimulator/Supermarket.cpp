@@ -176,7 +176,7 @@ void Supermarket::processRegs()
             regs[i].c = custQs[regLine].dequeue();
             regs[i].items = regs[i].c -> getNumItems();
             regs[i].c -> setWaitTime(time - regs[i].c -> getArrTime());
-            
+            cout << time << endl;
             totalCustWaitTime += regs[i].c -> getWaitTime();
             
             if(regs[i].c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
