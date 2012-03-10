@@ -42,6 +42,8 @@ private:
     int numExpressRegs;
     int numCusts;
     int numExpressCusts;
+    int totalCustWaitTime;
+    int totalExpressCustWaitTime;
     int time;
     
     bool allQsEmpty();

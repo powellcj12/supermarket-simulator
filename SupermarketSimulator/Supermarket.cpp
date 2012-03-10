@@ -47,6 +47,8 @@ Supermarket::Supermarket(int config)
     
     numCusts = 0;
     numExpressCusts = 0;
+    totalCustWaitTime = 0;
+    totalExpressCustWaitTime = 0;
     time = 0;
 }
 
@@ -146,6 +148,11 @@ void Supermarket::processRegs()
             regs[i].c = custQs -> dequeue();
             regs[i].items = regs[i].c -> getNumItems();
             regs[i].c -> setWaitTime(time - regs[i].c -> getArrTime());
+            
+            totalCustWaitTime += regs[i].c -> getWaitTime();
+            
+            if(regs[i].c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
+                totalExpressCustWaitTime += regs[i].c -> getWaitTime();
         }
         
         regs[i].items--;
