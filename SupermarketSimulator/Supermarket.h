@@ -21,7 +21,6 @@ struct Register
 {
     Customer* c;
     int items;
-    //bool isExpress;
 };
 
 class Supermarket
@@ -36,7 +35,7 @@ private:
     list<Customer *> custList;
     Queue* custQs;
     Register* regs;
-    Queue* doneQ;
+    Queue doneQ;
     
     int numQs;
     int numRegs;

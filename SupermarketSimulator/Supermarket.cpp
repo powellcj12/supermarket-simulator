@@ -43,10 +43,8 @@ Supermarket::Supermarket(int config)
     {
         regs[i].c = NULL;
         regs[i].items = 0;
-        //regs[i].isExpress = i < numExpressRegs;
     }
     
-    doneQ = new Queue();
     numCusts = 0;
     numExpressCusts = 0;
     time = 0;
@@ -56,7 +54,6 @@ Supermarket::~Supermarket()
 {
     delete[] custQs;
     delete[] regs;
-    delete doneQ;
 }
 
 void Supermarket::loadCustomers(string file)
@@ -142,5 +139,18 @@ bool Supermarket::placeCust(Customer *c)
 
 void Supermarket::processRegs()
 {
-    
+    for(int i = 0; i < numRegs; i++)
+    {
+        if(regs[i].items == 0)
+        {
+            regs[i].c = custQs -> dequeue();
+            regs[i].items = regs[i].c -> getNumItems();
+            regs[i].c -> setWaitTime(time - regs[i].c -> getArrTime());
+        }
+        
+        regs[i].items--;
+        
+        if(regs[i].items == 0)
+            doneQ.enqueue(regs[i].c);
+    }
 }
