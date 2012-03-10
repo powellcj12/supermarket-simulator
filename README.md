@@ -20,17 +20,17 @@ The simulator first asks which of the following configurations you would like to
 4. A supermarket with 4 registers, but only 1 line. The front customer goes to the next available register when it becomes free. Think of this like a bank.
 
 It will then ask for the name of a file to use as input. The input format is as follow:
-	Name NumberOfItems ArrivalTime
+	'Name NumberOfItems ArrivalTime'
 
 Here is an example:
-	Same 17 2
+	'Same 17 2
 	Ben 4 6
 	Norman 11 9
 	Bruce 2 11
 	Diane 9 15
-	...etc...
+	...etc...'
 
 Note that this list must be sorted by increasing arrival times.
 
 ## Output
-The average wait time for all customers and express customers will be printed to stdout. A file will also be created that displays the order in which the customers finished checking out. The name of this file is the same as the one used as input with the '.out' extension appended.
+The average wait time for all customers and express customers will be printed to stdout. A file will also be created that displays the order in which the customers finished checking out. The name of this file is the same as the one used as input with the ".out" extension appended.
