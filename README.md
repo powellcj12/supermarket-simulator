@@ -5,10 +5,8 @@ This is a simulator for computing wait times of customers at a supermarket. It i
 
 Wait time for each customer is the difference between when they are ready to check out and when they actually begin checking out. The time it takes them at the register does not count towards their wait time.
 
-## Compile
-	make
-
 ## Usage
+	make
 	./simulator
 
 ## Execution
