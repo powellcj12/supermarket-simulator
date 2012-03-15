@@ -30,7 +30,7 @@ Here is an example:
 	Diane 9 15
 	...etc...
 
-Note that this list must be sorted by increasing arrival times.
+Note that this list does not need to be sorted by increasing arrival times. The program will ask you whether it is or not, and sort the list if necessary.
 
 ## Output
 The average wait time for all customers and express customers will be printed to stdout. A file will also be created that displays the order in which the customers finished checking out. The name of this file is the same as the one used as input with the ".out" extension appended.

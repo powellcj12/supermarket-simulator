@@ -14,6 +14,7 @@
 #include <string>
 #include <fstream>
 #include <list>
+#include <algorithm>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
 
     Supermarket(int);
     ~Supermarket();
-    void loadCustomers(string);
+    void loadCustomers(string filename, char sorted);
     void simulate();
     void getResults(string);
     
@@ -50,9 +51,9 @@ private:
     int totalExpressCustWaitTime;
     int time;
     
+    static bool customerComp(Customer* a, Customer* b);
     bool allQsEmpty();
     bool allRegsEmpty();
-    //try to place customer in shortest, appropriate queue
     bool placeCust(Customer*);
     void processRegs();
 };

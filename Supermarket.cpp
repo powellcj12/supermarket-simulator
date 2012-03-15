@@ -57,7 +57,7 @@ Supermarket::~Supermarket()
     delete[] regs;
 }
 
-void Supermarket::loadCustomers(string file)
+void Supermarket::loadCustomers(string file, char sorted)
 {
     ifstream inFile;
     inFile.open(file.c_str(), ifstream::in);
@@ -77,6 +77,9 @@ void Supermarket::loadCustomers(string file)
     }
     
     inFile.close();
+
+    if(sorted == 'n')
+        custList.sort(customerComp);
 }
 
 void Supermarket::simulate()
@@ -119,6 +122,11 @@ void Supermarket::getResults(string file)
     
     cout << "Average wait time: " << avgWaitTime << "s\n";
     cout << "Average express wait time: " << avgExpressWaitTime << "s\n";
+}
+
+bool Supermarket::customerComp(Customer* a, Customer* b)
+{
+    return (a -> getArrTime() < b -> getArrTime());
 }
 
 bool Supermarket::allQsEmpty()

@@ -23,8 +23,12 @@ int main ()
         string filename;
         cout << "Enter customer file name: ";
         cin >> filename;
+
+        char sorted;
+        cout << "Is the file sorted by increassing arrival time (y or n)? ";
+        cin >> sorted;
         
-        s->loadCustomers(filename);
+        s->loadCustomers(filename, sorted);
         s->simulate();
         s->getResults(filename.append(".out"));
     }
