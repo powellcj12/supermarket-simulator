@@ -173,7 +173,6 @@ bool Supermarket::placeCust(Customer *c)
     
     if(shortest != -1)
     {
-        //cout << "Placing " << c -> getName() << " in line " << shortest << endl;
         custQs[shortest].enqueue(c);
         return true;
     }
@@ -188,7 +187,18 @@ void Supermarket::processRegs()
         int regLine = i;
         if(numQs == 1)//bank configuration
             regLine = 0;
-        
+
+        regs[i].items--;
+
+        if(regs[i].items == 0 && !regs[i].available)
+        {   //only add to done list if there's a customer here
+            doneQ.enqueue(regs[i].c);
+            regs[i].c = NULL;
+            regs[i].available = true;
+        }
+
+        //put next customer in reg at the same time that someone is done
+        //does not start checkout until next time increment, though
         if(regs[i].available && custQs[regLine].peek())
         {
             regs[i].c = custQs[regLine].dequeue();
@@ -199,15 +209,6 @@ void Supermarket::processRegs()
             
             if(regs[i].c -> getNumItems() <= EXPRESS_ITEM_LIMIT)
                 totalExpressCustWaitTime += regs[i].c -> getWaitTime();
-        }
-        
-        regs[i].items--; //process an item for the customer
-        
-        if(regs[i].items == 0 && !regs[i].available)
-        {   //only add to done list if there's a customer here
-            doneQ.enqueue(regs[i].c);
-            regs[i].c = NULL;
-            regs[i].available = true;
         }
     }
 }
