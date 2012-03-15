@@ -114,8 +114,8 @@ void Supermarket::getResults(string file)
     
     outFile.close();
     
-    double avgWaitTime = (double)totalCustWaitTime/numCusts;
-    double avgExpressWaitTime = (double)totalExpressCustWaitTime/numExpressCusts;
+    float avgWaitTime = (float)totalCustWaitTime/numCusts;
+    float avgExpressWaitTime = (float)totalExpressCustWaitTime/numExpressCusts;
     
     cout << "Average wait time: " << avgWaitTime << "s\n";
     cout << "Average express wait time: " << avgExpressWaitTime << "s\n";
