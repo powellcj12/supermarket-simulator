@@ -8,8 +8,6 @@
 
 #include "Supermarket.h"
 
-const int EXPRESS_ITEM_LIMIT = 5;
-
 Supermarket::Supermarket(int config)
 {
     switch (config)

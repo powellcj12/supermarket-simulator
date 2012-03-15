@@ -27,6 +27,8 @@ struct Register
 class Supermarket
 {
 public:
+    const static int EXPRESS_ITEM_LIMIT = 5;
+
     Supermarket(int);
     ~Supermarket();
     void loadCustomers(string);
