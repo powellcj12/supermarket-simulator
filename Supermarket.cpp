@@ -190,10 +190,7 @@ void Supermarket::processRegs()
 {
     for(int i = 0; i < numRegs; i++)
     {
-        int regLine = i;
-        if(numQs == 1)//bank configuration
-            regLine = 0;
-
+        int regLine = (numQs == 1) ? 0 : i;
         regs[i].items--;
 
         if(regs[i].items == 0 && !regs[i].available)
