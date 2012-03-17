@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -c -Wall -Wextra
-all: hello
+all: simulator
 
-hello: main.o Supermarket.o Queue.o Customer.o
+simulator: main.o Supermarket.o Queue.o Customer.o
 	$(CC) main.o Supermarket.o Queue.o Customer.o -o simulator
 
 main.o: main.cpp
