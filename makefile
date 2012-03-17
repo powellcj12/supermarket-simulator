@@ -18,4 +18,4 @@ Customer.o: Customer.cpp
 	$(CC) $(CFLAGS) Customer.cpp
 
 clean:
-	rm -rf *o hello
+	rm -rf *o simulator
